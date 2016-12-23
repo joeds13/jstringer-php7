@@ -4,6 +4,8 @@ RUN apt update && \
     # TODO install php7.1 and nginx mainline
     apt install -y php7.0-curl php7.0-fpm php7.0-zip nginx && \
     apt clean
+# TODO php configs
+# date.timezone = Europe/London
 RUN EXPECTED_SIGNATURE=$(curl -q https://composer.github.io/installer.sig); \
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"; \
     ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');"); \
